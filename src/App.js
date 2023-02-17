@@ -48,8 +48,8 @@ export default function App(){
     function addNote(event){
         event.preventDefault()
         setSaving(true)
-        setNotes((prevState)=>{return(
-            [
+        setNotes((prevState)=>{
+            const newState = [
                 ...prevState,
                 {
                     name: currentNote.noteName,
@@ -57,8 +57,8 @@ export default function App(){
                     id: currentNote.noteName + Math.ceil(Math.random()*1000000),
                 }
             ]
-        )})
-        localStorage.setItem('notes', JSON.stringify(notes));
+            localStorage.setItem('notes', JSON.stringify(newState));
+            return(newState)})
 
         setTimeout(
             function(){
@@ -66,7 +66,7 @@ export default function App(){
                 noteContent: "",})
                 gotoNewNoteX()
                 setSaving(false)
-                localStorage.setItem('notes', JSON.stringify(notes));
+                // localStorage.setItem('notes', JSON.stringify(notes));
             }, 500
         )
     }
@@ -90,7 +90,7 @@ export default function App(){
             noteName: name,
             noteContent: content,
         })
-        localStorage.setItem('notes', JSON.stringify(notes));
+        // localStorage.setItem('notes', JSON.stringify(notes));
         
         setTimeout(function(){
             setNotes((prevState)=>{
@@ -99,7 +99,7 @@ export default function App(){
                 })
                 return (newState)
             })
-            localStorage.setItem('notes', JSON.stringify(notes));
+            // localStorage.setItem('notes', JSON.stringify(notes));
         }, 500)
     }
 
