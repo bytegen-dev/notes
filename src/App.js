@@ -103,6 +103,12 @@ export default function App(){
         }, 500)
     }
 
+    function toggleTheme(){
+        setUiSettings((prevState)=>{
+            return({...prevState, darkmode: !prevState.darkmode})
+        })
+    }
+
     useEffect(
         function(){
             const notesInStorage = JSON.parse(localStorage.getItem('notes')||'[]')
@@ -111,12 +117,28 @@ export default function App(){
         }, []
     )
 
+    useEffect(
+        function(){
+            const today = new Date()
+            console.log(today)
+            const hours = today.getHours()
+
+            if(hours > 16 || hours < 8){
+                setUiSettings((prevState)=>{
+                    return({
+                        ...prevState, darkmode: true
+                    })
+                })
+            }
+        }, []
+    )
+
 
 
     return(
-        <div className="container">
+        <div className={uiSettings.darkmode ? "dark container" : "container"}>
             <Home className="home" allNotes={notes} onDelete={deleteNote} editNote={editNote}/>
-            <Theme className="theme"/>
+            <Theme className="theme" toggleTheme={toggleTheme}/>
             <Newnote
             className={uiSettings.newNote ? "show new-note type-big" : "new-note type-big"}
             goback={gotoNewNoteX}

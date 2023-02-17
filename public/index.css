@@ -25,7 +25,7 @@
     left: 0;
     width: 100vw;
     height: 100%;
-    background-color: red;
+    background-color: #000;
 }
 
 
@@ -39,7 +39,7 @@
     position: relative;
     width: 100%;
     height: 100%;
-    background-color: red;
+    background-color: #000;
 }
 
 .navbar{
@@ -49,9 +49,17 @@
     backdrop-filter: blur(5px);
     z-index: 2;
     display: flex;
+    letter-spacing: 2px;
     justify-content: center;
     align-items: center;
-    /* border-bottom: 2px solid #ccc; */
+    transition: all 0.5s ease;
+    border-bottom: 2px solid #ccc0;
+}
+
+.dark .navbar{
+    background-color: #000;
+    color: #fff;
+    border-bottom: 2px solid #ccc5;
 }
 
 .home .about{
@@ -67,12 +75,22 @@
     line-height: 20px;
     word-spacing: 2px;
     text-align: center;
+    transition: all 0.5s ease;
     /* flex: 1; */
     flex-direction: column;
 }
 
+.dark .home .about{
+    background-color: #000;
+}
+
 .home .about a{
     margin-top: 20px;
+    transition: all 0.5s ease;
+}
+
+.dark .home .about a{
+    color: tomato;
 }
 
 .home .notes-holder{
@@ -84,6 +102,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: all 0.5s ease;
+    border-top: 2px solid #ccc0;
+}
+
+.dark .home .notes-holder{
+    background-color: #000;
+    border-top: 2px solid #ccc5;
 }
 
 .home .notes-holder .no-notes{
@@ -97,6 +122,14 @@
 
 .note:hover{
     background-color: #000 !important;
+}
+
+.dark .note{
+    border: 2px solid #fff0;
+}
+
+.dark .note:hover{
+    border-color:  #ffffffc3 !important;
 }
 
 .note-button-holder{
@@ -155,6 +188,14 @@ button{
     border-radius: 50%;
     font-size: 25px;
     box-shadow: 0px 0px 10px rgba(0, 81, 85, 0.694);
+    transition: all 0.5s ease;
+}
+
+.dark .cta-button{
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    box-shadow: 0px 0px 10px transparent;
 }
 
 .new-note{
@@ -166,6 +207,8 @@ button{
     transition: all 0.5s ease;
     background-color: transparent;
 }
+
+
 
 .show.new-note{
     transform: translateX(0);
@@ -187,6 +230,10 @@ button{
     z-index: 2;
 }
 
+.dark .new-note .return{
+    color: #fff;
+}
+
 .new-note .new-note-details{
     width: 100vw;
     height: 100%;
@@ -198,6 +245,10 @@ button{
     /* backdrop-filter: blur(10px); */
 }
 
+.dark .new-note .new-note-details{
+    background-color: #000;
+}
+
 .new-note .new-note-details h2{
     margin-bottom: 40px;
     letter-spacing: 1px;
@@ -207,6 +258,10 @@ button{
     align-items: center;
     color: #333;
     /* color: ; */
+}
+
+.dark .new-note .new-note-details h2{
+    color: #fff;
 }
 
 .new-note .new-note-details h2::before{
@@ -234,6 +289,7 @@ button{
     box-shadow: 4px 4px 4px #0001;
 }
 
+
 .new-note .new-note-details form textarea{
     outline: none;
     border: none;
@@ -244,6 +300,14 @@ button{
     min-height: 100px;
     max-height: 300px;
     box-shadow: 4px 4px 4px #0001;
+}
+
+.dark .new-note .new-note-details form input, .dark .new-note .new-note-details form textarea{
+    border: none;
+    background-color: transparent;
+    border-radius: 10px;
+    border: 2px solid #fff;
+    color: #fff;
 }
 
 .new-note .new-note-details form .buttons{
@@ -270,8 +334,20 @@ button{
     transition: all 0.5s ease;
 }
 
+
+
 #save.anim{
     background-color: #000;
+}
+
+.dark #save{
+    background-color: transparent;
+    border-top: 2px solid #fff5;
+}
+
+.dark #save.anim{
+    background-color: #fff;
+    color: #000;
 }
 
 .theme{
@@ -286,6 +362,13 @@ button{
     color: var(--dark-text);
     background-color: var(--dark-bg);
     transform: rotate(45deg) translate(0%, 70%);
+    transition: all 0.5s ease;
+    border: 2px solid transparent;
+}
+
+.dark .theme{
+    background-color: #fff;
+    color: #000;
 }
 
 .theme .theme-changer{
@@ -309,6 +392,11 @@ button{
     align-items: center;
     animation: deletepreloader 0.5s ease forwards;
     animation-delay: 3s;
+    /* display: none; */
+}
+
+.dark .preloader{
+    background-color: #000e;
 }
 
 .preloader .version{
