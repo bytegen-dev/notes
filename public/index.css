@@ -307,7 +307,7 @@ button{
     display: flex;
     justify-content: center;
     align-items: center;
-    /* animation: deletepreloader 0.5s ease forwards; */
+    animation: deletepreloader 0.5s ease forwards;
     animation-delay: 3s;
 }
 
