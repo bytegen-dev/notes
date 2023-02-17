@@ -1,0 +1,9 @@
+:root{
+    --light-bg: #fff;
+    --dark-bg: #000;
+    --light-text: #000;
+    --dark-text: #fff;
+    --error: red;
+    --success: green;
+    --storage: peru;
+}
