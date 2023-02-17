@@ -110,10 +110,10 @@ export default function Home(props){
             <div className="about" id="about" style={{transition: 'all 0.5s ease'}}>
                 <span>
                     <p>*Notes was built</p>
-                    <p>in tertiux quick apps</p>
-                    <p>compilation by Isaac Adebayo</p>
+                    <p>as a part of XoXo quick apps</p>
+                    <p>compilation in 2023</p>
                 </span>
-                <a href="https://wa.me/+2347035658853" rel="noreferrer" target="_blank">Learn more</a>
+                <a href="https://github.com/tertiux" rel="noreferrer" target="_blank">Learn more</a>
             </div>
             <div className="notes-holder" id="notesholder">
                 {props.allNotes.length > 0 ? 
