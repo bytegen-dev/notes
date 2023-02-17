@@ -307,8 +307,15 @@ button{
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: deletepreloader 0.5s ease forwards;
+    /* animation: deletepreloader 0.5s ease forwards; */
     animation-delay: 3s;
+}
+
+.preloader .version{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #666;
 }
 
 @keyframes deletepreloader{
