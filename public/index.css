@@ -7,7 +7,7 @@
 
 .container{
     font-family: "Roboto", sans-serif;
-    height: 100vh;
+    height: 100%;
     width: 100vw;
     overflow: hidden;
     /* background-image: linear-gradient(purple, peru); */
