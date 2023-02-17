@@ -9,6 +9,7 @@
     font-family: "Roboto", sans-serif;
     height: 100%;
     width: 100vw;
+    position: fixed;
     overflow: hidden;
     /* background-image: linear-gradient(purple, peru); */
 }
