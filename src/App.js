@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
 import Home from "./Home";
 import Theme from "./Theme";
@@ -58,6 +58,7 @@ export default function App(){
                 }
             ]
         )})
+        localStorage.setItem('notes', JSON.stringify(notes));
 
         setTimeout(
             function(){
@@ -65,6 +66,7 @@ export default function App(){
                 noteContent: "",})
                 gotoNewNoteX()
                 setSaving(false)
+                localStorage.setItem('notes', JSON.stringify(notes));
             }, 500
         )
     }
@@ -74,6 +76,7 @@ export default function App(){
             const newState = prevState.filter((note)=>{
                 return note.id !== id
             })
+            localStorage.setItem('notes', JSON.stringify(newState));
             return (newState)
         })
     }
@@ -87,6 +90,7 @@ export default function App(){
             noteName: name,
             noteContent: content,
         })
+        localStorage.setItem('notes', JSON.stringify(notes));
         
         setTimeout(function(){
             setNotes((prevState)=>{
@@ -95,8 +99,17 @@ export default function App(){
                 })
                 return (newState)
             })
+            localStorage.setItem('notes', JSON.stringify(notes));
         }, 500)
     }
+
+    useEffect(
+        function(){
+            const notesInStorage = JSON.parse(localStorage.getItem('notes')||'[]')
+            console.log(notesInStorage)
+            setNotes(notesInStorage)
+        }, []
+    )
 
 
 
