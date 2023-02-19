@@ -8,16 +8,67 @@ import Editnote from "./Editnote";
 import Preloader from "./Preloader";
 import Downloadbtn from "./Doawnload";
 import Element from "./Element";
+import Preferences from "./Preferences";
 
 export default function App(){
     const [uiSettings, setUiSettings] = useState({
         menuShow: false,
         darkmode: false,
         navbarColor: false,
-        newNote: false,
+        newNote: true,
         editNote: false,
-        downloadNote: false
+        downloadNote: true,
     })
+
+    const [downloadPreferences, setDownloadPreferences] = useState({
+        bgColor: "green",
+        textColor: "white",
+    })
+
+    function bgColorRed(){
+        setDownloadPreferences((prevState)=>{
+            return({
+                textColor: "white",
+                bgColor: "red"
+            })
+        })
+    }
+
+    function bgColorBlack(){
+        setDownloadPreferences((prevState)=>{
+            return({
+                textColor: "white",
+                bgColor: "black"
+            })
+        })
+    }
+
+    function bgColorWhite(){
+        setDownloadPreferences((prevState)=>{
+            return({
+                textColor: "black",
+                bgColor: "white"
+            })
+        })
+    }
+
+    function bgColorGreen(){
+        setDownloadPreferences((prevState)=>{
+            return({
+                textColor: "white",
+                bgColor: "green"
+            })
+        })
+    }
+
+    function bgColorPurple(){
+        setDownloadPreferences((prevState)=>{
+            return({
+                textColor: "white",
+                bgColor: "purple"
+            })
+        })
+    }
 
     const [notes, setNotes] = useState([])
 
@@ -181,7 +232,15 @@ export default function App(){
             <div onClick={gotoDownloadX} className={uiSettings.downloadNote ? "show downloadX": "downloadX"}><i className="fa fa-arrow-left"/></div>
             <Ctabutton className="cta-button" goto={gotoNewNote}/>
             <Preloader />
-            <Element className={uiSettings.downloadNote ? "show element" : "element"} name={currentNote.noteName} content={currentNote.noteContent}/>
+            <Preferences
+            setRed={bgColorRed}
+            setBlack={bgColorBlack}
+            setWhite={bgColorWhite}
+            setGreen={bgColorGreen}
+            setPurple={bgColorPurple}
+            className={uiSettings.downloadNote?"show preferences" : "preferences"}
+            />
+            <Element bgColor={downloadPreferences.bgColor} textColor={downloadPreferences.textColor} className={uiSettings.downloadNote ? "show element" : "element"} name={currentNote.noteName} content={currentNote.noteContent}/>
             <Downloadbtn className={uiSettings.downloadNote ? "show download" : "download"}  />
         </div>
     )
