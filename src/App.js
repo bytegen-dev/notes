@@ -187,21 +187,21 @@ export default function App(){
         }, []
     )
 
-    useEffect(
-        function(){
-            const today = new Date()
-            console.log(today)
-            const hours = today.getHours()
+    // useEffect(
+    //     function(){
+    //         const today = new Date()
+    //         console.log(today)
+    //         const hours = today.getHours()
 
-            if(hours > 16 || hours < 0){
-                setUiSettings((prevState)=>{
-                    return({
-                        ...prevState, darkmode: true
-                    })
-                })
-            }
-        }, []
-    )
+    //         if(hours > 16 || hours < 0){
+    //             setUiSettings((prevState)=>{
+    //                 return({
+    //                     ...prevState, darkmode: true
+    //                 })
+    //             })
+    //         }
+    //     }, []
+    // )
 
 
 
