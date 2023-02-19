@@ -392,7 +392,7 @@ button{
     align-items: center;
     animation: deletepreloader 0.5s ease forwards;
     animation-delay: 3s;
-    display: none;
+    /* display: none; */
 }
 
 .dark .preloader{
