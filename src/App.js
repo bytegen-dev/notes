@@ -6,6 +6,8 @@ import Newnote from "./Newnote";
 import Ctabutton from "./Ctabutton";
 import Editnote from "./Editnote";
 import Preloader from "./Preloader";
+import Downloadbtn from "./Doawnload";
+import Element from "./Element";
 
 export default function App(){
     const [uiSettings, setUiSettings] = useState({
@@ -13,7 +15,8 @@ export default function App(){
         darkmode: false,
         navbarColor: false,
         newNote: false,
-        editNote: false
+        editNote: false,
+        downloadNote: false
     })
 
     const [notes, setNotes] = useState([])
@@ -109,6 +112,22 @@ export default function App(){
         })
     }
 
+    function gotoDownload(){
+        setUiSettings((prevState)=>{
+            return({
+                ...prevState, downloadNote: true
+            })
+        })
+    }
+
+    function gotoDownloadX(){
+        setUiSettings((prevState)=>{
+            return({
+                ...prevState, downloadNote: false
+            })
+        })
+    }
+
     useEffect(
         function(){
             const notesInStorage = JSON.parse(localStorage.getItem('notes')||'[]')
@@ -123,7 +142,7 @@ export default function App(){
             console.log(today)
             const hours = today.getHours()
 
-            if(hours > 16 || hours < 8){
+            if(hours > 16 || hours < 0){
                 setUiSettings((prevState)=>{
                     return({
                         ...prevState, darkmode: true
@@ -147,6 +166,7 @@ export default function App(){
             noteName={currentNote.noteName}
             noteContent={currentNote.noteContent}
             isSaving={saving}
+            gotoDownload={gotoDownload}
             />
             <Editnote
             className={uiSettings.editNote ? "show new-note type-big" : "new-note type-big"}
@@ -156,9 +176,13 @@ export default function App(){
             noteName={currentNote.noteName}
             noteContent={currentNote.noteContent}
             isSaving={saving}
+            gotoDownload={gotoDownload}
             />
+            <div onClick={gotoDownloadX} className={uiSettings.downloadNote ? "show downloadX": "downloadX"}><i className="fa fa-arrow-left"/></div>
             <Ctabutton className="cta-button" goto={gotoNewNote}/>
             <Preloader />
+            <Element className={uiSettings.downloadNote ? "show element" : "element"} name={currentNote.noteName} content={currentNote.noteContent}/>
+            <Downloadbtn className={uiSettings.downloadNote ? "show download" : "download"}  />
         </div>
     )
 }

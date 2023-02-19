@@ -27,7 +27,7 @@ export default function Editnote(props){
                     </div>
                 </form>
             </div>
-            <div className="success"></div>
+            <div className="gotodownload" onClick={props.gotoDownload}>save as <i className="fa fa-save"/></div>
         </div>
     
     )
