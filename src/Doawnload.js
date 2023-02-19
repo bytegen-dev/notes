@@ -11,7 +11,7 @@ export default function Downloadbtn(props){
         .then(function(canvas){
             const link = document.createElement("a")
             link.download = "note.png"
-            link.href = canvas.toDataURL("image/png").replace(/^data:image\/[^;]/, "data:application/octet-stream");
+            link.href = canvas.toDataURL("image/jpeg").replace(/^data:image\/[^;]/, "data:application/octet-stream");
             link.click()
         })
         
