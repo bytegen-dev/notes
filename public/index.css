@@ -462,6 +462,7 @@ button{
     scale: 0;
     visibility: hidden;
     transition: all 0.5s ease;
+    border: 2px solid;
 }
 
 .show.download{

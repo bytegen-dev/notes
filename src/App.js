@@ -15,9 +15,9 @@ export default function App(){
         menuShow: false,
         darkmode: false,
         navbarColor: false,
-        newNote: true,
+        newNote: false,
         editNote: false,
-        downloadNote: true,
+        downloadNote: false,
     })
 
     const [downloadPreferences, setDownloadPreferences] = useState({
@@ -229,7 +229,7 @@ export default function App(){
             isSaving={saving}
             gotoDownload={gotoDownload}
             />
-            <div onClick={gotoDownloadX} className={uiSettings.downloadNote ? "show downloadX": "downloadX"}><i className="fa fa-arrow-left"/></div>
+            <div style={{color: downloadPreferences.textColor}} onClick={gotoDownloadX} className={uiSettings.downloadNote ? "show downloadX": "downloadX"}><i className="fa fa-arrow-left"/></div>
             <Ctabutton className="cta-button" goto={gotoNewNote}/>
             <Preloader />
             <Preferences
@@ -241,7 +241,7 @@ export default function App(){
             className={uiSettings.downloadNote?"show preferences" : "preferences"}
             />
             <Element bgColor={downloadPreferences.bgColor} textColor={downloadPreferences.textColor} className={uiSettings.downloadNote ? "show element" : "element"} name={currentNote.noteName} content={currentNote.noteContent}/>
-            <Downloadbtn className={uiSettings.downloadNote ? "show download" : "download"}  />
+            <Downloadbtn border={downloadPreferences.textColor} className={uiSettings.downloadNote ? "show download" : "download"}  />
         </div>
     )
 }

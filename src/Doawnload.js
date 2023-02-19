@@ -19,7 +19,7 @@ export default function Downloadbtn(props){
     }
 
     return(
-        <div className={props.className} onClick={downloadasImage}>
+        <div style={{borderColor: props.border}} className={props.className} onClick={downloadasImage}>
             <i className="fa fa-download" />
         </div>
     )
