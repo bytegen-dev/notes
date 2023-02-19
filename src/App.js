@@ -21,8 +21,8 @@ export default function App(){
     })
 
     const [downloadPreferences, setDownloadPreferences] = useState({
-        bgColor: "green",
-        textColor: "white",
+        bgColor: "white",
+        textColor: "black",
     })
 
     function bgColorRed(){
